@@ -1,0 +1,46 @@
+{
+  "name": "abusezero",
+  "version": "0.13.0",
+  "type": "module",
+  "description": "The official AbuseZero SDK and CLI: abuse prevention API for SaaS.",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "AbuseZero",
+  "homepage": "https://abusezero.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abusezero/abusezero-js.git"
+  },
+  "files": [
+    "server",
+    "browser",
+    "cli",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES",
+    "README.md"
+  ],
+  "exports": {
+    "./server": {
+      "import": {
+        "types": "./server/index.d.ts",
+        "default": "./server/index.js"
+      },
+      "require": {
+        "types": "./server/index.d.cts",
+        "default": "./server/index.cjs"
+      }
+    },
+    "./browser": {
+      "types": "./browser/index.d.ts",
+      "import": "./browser/index.js"
+    }
+  },
+  "bin": {
+    "abusezero": "./cli/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
