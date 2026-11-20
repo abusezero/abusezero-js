@@ -488,6 +488,13 @@ declare class AbuseZero {
     enterprisePlans(): Promise<Record<string, unknown>>;
     /** What an Enterprise plan code adds, without redeeming it. */
     previewEnterprisePlanCode(code: string): Promise<Record<string, unknown>>;
+    /** The workspace's referral link. It never changes. */
+    getReferralLink(): Promise<Record<string, unknown>>;
+    /** The referrals the workspace's link brought in, newest first, with the referral bonus credits earned and owed. */
+    listReferrals(input?: {
+        limit?: number;
+        cursor?: string;
+    }): Promise<Record<string, unknown>>;
     /** The workspace owner only, as for every call below: the next charge. */
     upcomingCharge(): Promise<Record<string, unknown>>;
     /** Invoices, newest first, each with its secure payment page link. */

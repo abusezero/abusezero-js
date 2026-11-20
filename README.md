@@ -121,7 +121,7 @@ const { deviceToken } = await observe({ key: "pk_…", claimId });
 For script-based integrations, load the standalone browser build with your PUBLISHABLE KEY in its address. It reports in by itself:
 
 ```html
-<script type="module" src="https://abusezero.com/sdk/abusezero-browser-0.13.0.js?key=pk_…"></script>
+<script type="module" src="https://abusezero.com/sdk/abusezero-browser-0.14.0.js?key=pk_…"></script>
 ```
 
 ## Command line
@@ -153,6 +153,10 @@ abusezero benefits list --output table
 AI apps that support remote MCP connect directly to `https://mcp.abusezero.com/mcp` and sign in through the browser.
 
 For apps that run local MCP servers, use `abusezero mcp`. It uses `ABUSEZERO_API_KEY` when set, then a machine client from `ABUSEZERO_CLIENT_ID` and `ABUSEZERO_CLIENT_SECRET`, and otherwise your command-line sign-in. With none of them, it offers the public tools, which need no sign-in. Apps that haven't signed in can also connect to `https://mcp.abusezero.com/mcp/public` for the public tools.
+
+## Upgrade to 0.14.0
+
+`getReferralLink()` reads your workspace's referral link, and `listReferrals()` lists who signed up with it. `getReferralLink()` calls `GET /v1/billing/referral-link`, and `listReferrals()` calls `GET /v1/billing/referrals`. Both need the `operations:general` scope. The CLI adds `abusezero billing referral-link` and `abusezero billing referrals`. Nothing else changes, and pages that load the standalone script at its `0.13.0` address keep working.
 
 ## Upgrade to 0.13.0
 
